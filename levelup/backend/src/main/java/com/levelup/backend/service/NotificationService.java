@@ -11,6 +11,8 @@ import com.levelup.backend.entity.User;
 import com.levelup.backend.repository.NotificationRepository;
 
 @Service
+
+// This service handles the creation and retrieval of notifications for users.
 public class NotificationService {
 
     @Autowired

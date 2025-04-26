@@ -16,15 +16,19 @@ import com.levelup.backend.repository.UserRepository;
 @Service
 public class CommentService {
 
+    //Autowired comment repositories
     @Autowired
     private CommentRepository commentRepository;
 
+    //Autowired services
     @Autowired
     private NotificationService notificationService;
 
+    //Autowired post repositories
     @Autowired
     private PostRepository postRepository;
 
+    //Autowired user repositories
     @Autowired
     private UserRepository userRepository;
 
@@ -44,13 +48,18 @@ public class CommentService {
         return saved;
     }
 
+    // Method to get all comments by post
+
     public List<Comment> getCommentsByPost(Post post) {
         return commentRepository.findByPost(post);
     }
 
+    // Method to get all comments by user
     public Comment getCommentById(Long id) {
         return commentRepository.findById(id).orElseThrow();
     }
+
+    // Method to get all comments by user
 
     public void deleteById(Long id) {
         commentRepository.deleteById(id);

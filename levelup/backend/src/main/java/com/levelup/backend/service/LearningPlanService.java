@@ -20,6 +20,8 @@ public class LearningPlanService {
         return learningPlanRepository.save(plan);
     }
 
+    // Method to get all learning plans as LearningPlanResponse
+
     public List<LearningPlanResponse> getAllPlansAsResponse() {
         List<LearningPlan> plans = learningPlanRepository.findAll();
 
