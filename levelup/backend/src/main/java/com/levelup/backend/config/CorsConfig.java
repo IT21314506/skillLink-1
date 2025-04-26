@@ -17,7 +17,7 @@ public class CorsConfig {
                         .allowedOrigins("http://localhost:3000") // Replace with your frontend URL
              
                         .allowedMethods("*")
-                        .allowedHeaders("*")
+                        .allowedHeaders("*")//set all headers
                         .allowCredentials(true)
                         .exposedHeaders("Authorization");//set authorizatio
             }
