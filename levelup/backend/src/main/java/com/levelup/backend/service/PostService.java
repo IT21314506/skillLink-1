@@ -17,6 +17,8 @@ import com.levelup.backend.repository.PostRepository;
 import com.levelup.backend.repository.UserRepository;
 
 @Service
+
+// This service handles the creation, retrieval, update, and deletion of posts.
 public class PostService {
 
     @Autowired
@@ -67,7 +69,7 @@ public class PostService {
 
         return postRepository.save(post);
     }
-
+    // Method to update post without media
     public Post getPostByIdForUser(Long postId, String email) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new RuntimeException("Post not found"));
@@ -78,7 +80,7 @@ public class PostService {
 
         return post;
     }
-
+//
     public void deletePostByIdAndUser(Long postId, String email) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new RuntimeException("Post not found"));
@@ -133,7 +135,7 @@ public class PostService {
 
         return postRepository.save(post);
     }
-
+//
     public boolean isLikedByUser(Long postId, String userEmail) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new RuntimeException("Post not found"));
         User user = userRepository.findByEmail(userEmail).orElseThrow(() -> new RuntimeException("User not found"));

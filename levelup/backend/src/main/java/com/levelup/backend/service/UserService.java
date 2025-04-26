@@ -13,6 +13,8 @@ import com.levelup.backend.entity.User;
 import com.levelup.backend.repository.UserRepository;
 
 @Service
+// This service handles user registration, authentication, and profile updates.
+
 public class UserService {
 
     @Autowired
@@ -21,12 +23,17 @@ public class UserService {
     @Autowired
     private JwtUtil jwtUtil;
 
+    // Password encoder for hashing passwords
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
+    // Method to register a new user
     public String registerUser(String username, String email, String password) {
         if (userRepository.findByEmail(email).isPresent()) {
             return "Email already in use";
         }
+
+        // Check if username is already taken
+
 
         User user = new User();
         user.setUsername(username);
@@ -73,6 +80,8 @@ public class UserService {
         user.setUsername(newUsername);
         user.setEmail(newEmail);
 
+        // Only update password if it's provided and not empty
+        
         if (newPassword != null && !newPassword.trim().isEmpty()) {
             user.setPassword(passwordEncoder.encode(newPassword));
         }
